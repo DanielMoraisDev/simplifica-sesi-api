@@ -21,9 +21,9 @@ const createTurma = async (req, res) => {
             return
         }
 
-        const response = await TurmaModel.create(turma)
+        const turmaCreated = await TurmaModel.create(turma)
 
-        res.status(201).json({ response, message: "Turma criada com sucesso" })
+        res.status(201).json({ turmaCreated, message: "Turma criada com sucesso" })
     } catch (error) {
         console.log('[CONTROLLER TURMA CREATE] Error: ' + error)
     }

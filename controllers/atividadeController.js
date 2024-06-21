@@ -25,27 +25,89 @@ const createAtividade = async (req, res) => {
             return res.status(404).json({ message: "Turma não encontrada" })
         }
 
-        const response = await AtividadeModel.create(atividade)
+        const atividadeCreated = await AtividadeModel.create(atividade)
 
-        const atividadeId = atividade._id
+        const atividadeId = atividadeCreated._id
 
         const turmaUpdate = await TurmaModel.findOneAndUpdate(
             { _id: req.body.turma_id }, 
             { $push: { atividades: { atividade_id: atividadeId } } },
             { new: true } 
-        );      
-        console.log(turmaUpdate)
+        )
 
         if (!turmaUpdate) {
             return res.status(404).send({ message: 'Houve um erro ao tentar atualizar a turma' });
         }
 
-        res.status(201).json({response, message: "Atividade criada com sucesso"})
+        res.status(201).json({atividadeCreated, message: "Atividade criada com sucesso"})
     } catch (error) {
         console.log('[CONTROLLER ATIVIDADE CREATE] Error: ' + error)
     }
 }
 
+const getAtividade = async (req, res) => {
+    try {
+        const id = req.params.id
+
+        const atividade = await AtividadeModel.findById(id)
+
+        if (!atividade) {
+            return res.status(500).json({ message: "Atividade não encontrada" })
+        }
+
+        res.status(200).json({ atividade })
+    } catch (error) {
+        console.log('[CONTROLLER ATIVIDADE GET ONE] Error: ' + error)
+    }
+}
+
+const getAllAtividades = async (req, res) => {
+    try {
+        const atividades = await AtividadeModel.find()
+
+        res.status(200).json(atividades)
+    } catch (error) {
+        console.log('[CONTROLLER ATIVIDADE GET ALL] Error: ' + error)
+    }
+}
+
+const updateAtividade = async (req, res) => {
+    try {
+        const id = req.params.id
+
+        const atividade = {
+            titulo: req.body.titulo,
+            descricao: req.body.descricao,
+            prazo: req.body.prazo,
+            habilidades: req.body.habilidades,
+            competencias: req.body.competencias,
+            $push: { links: { $each: req.body.links } }
+        }
+
+        const updatedAtividade = await AtividadeModel.findOneAndUpdate(
+            { _id: id }, 
+            atividade,   
+            { new: true }
+        );
+
+        if (!updatedAtividade) {
+            res.status(404).json({ message: "Atividade não encontrada"})
+            return
+        }
+
+        res.status(200).json({atividade, updatedAtividade, message: "Atividade atualizada com sucesso"})
+    } catch (error) {
+        console.log("[CONTROLLER ATIVIDADE UPDATE] Error: " + error)
+    }
+}
+
+const deleteAtividade = async (req, res) => {
+    try {
+        const id = req.params.id
+    } catch (error) {
+        console.log('[CONTROLLER ATIVIDADE DELETE] Error: ' + error)
+    }
+}
 
 const deleteAllAtividades = async (req, res) => {
     try {
@@ -55,7 +117,7 @@ const deleteAllAtividades = async (req, res) => {
             return res.status(500).json({ message: "Senha incorreta, não será possível deletar as turmas" })
         }
         
-        const deletedAtividadesTurmas = await TurmaModel.updateMany({ $set: { atividades: [] } })
+        await TurmaModel.updateMany({ $set: { atividades: [] } })
         const deletedAtividades = await AtividadeModel.deleteMany({})
 
         res.status(200).json({ deletedAtividades, message: "Atividades excluídas com sucesso" })
@@ -67,6 +129,10 @@ const deleteAllAtividades = async (req, res) => {
 
 const atividadeController = {
     create: createAtividade,
+    getOne: getAtividade,
+    getAll: getAllAtividades,
+    update: updateAtividade,
+    delete: deleteAtividade,
     deleteAll: deleteAllAtividades
 }
 
