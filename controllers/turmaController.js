@@ -55,10 +55,21 @@ const deleteTurma = async (req, res) => {
     }
 }
 
+const deleteAllTurma = async (req, res) => {
+    try {
+       const deletedTurmas = await TurmaModel.deleteMany({})
+
+       res.status(200).json({deletedTurmas, message: "Turmas excluídas com sucesso"})
+    } catch (error) {
+        console.log('[CONTROLLER TURMA DELETE ALL] Error: ' + error)
+    }
+}
+
 const turmaController = {
     create: createTurma,
     getAll: getAllTurmas,
-    delete: deleteTurma
+    delete: deleteTurma,
+    deleteAll: deleteAllTurma
 }
 
 module.exports = turmaController

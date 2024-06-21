@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const account = 'danielmoraisdev'
-const password = '89wffhGueSopB8cG'
+const password = 'tm5x4wr2cJrkuskT'
 
 const main = async () => {      
     try {

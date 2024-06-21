@@ -10,7 +10,11 @@ router.route('/turmas').get((req, res) => {
     return turmaController.getAll(req, res)
 })
 
-router.route('/turma/:id').delete((req, res) => {
+router.route('/turmas').delete((req, res) => {
+    return turmaController.deleteAll(req, res)
+})
+
+router.route('/turmas/:id').delete((req, res) => {
     return turmaController.delete(req, res)
 })
 

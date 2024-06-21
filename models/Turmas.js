@@ -9,7 +9,37 @@ const turmaSchema = new Schema({
     identificador: {
         type: String,
         required: true
-    }
+    },
+    eventos: {
+        type: [{
+            evento_id: {
+                type: String,
+                required: true
+            }
+        }],
+        required: true,
+        default: []
+    },
+    avisos: {
+        type: [{
+            aviso_id: {
+                type: String,
+                required: true
+            }
+        }],
+        required: true,
+        default: []
+    },
+    atividades: {
+        type: [{
+            atividade_id: {
+                type: String,
+                required: true
+            }
+        }],
+        required: true,
+        default: []
+    },
 }, { timestamps: true })
 
 const Turma = mongoose.model("Turma", turmaSchema)
