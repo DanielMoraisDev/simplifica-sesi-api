@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
 const TurmaModel = require('../models/Turmas.js')
-const AtividadeModel = require('../models/Atividades.js')
+const AtividadeModel = require('../models/Atividades.js');
+
+const keyAdmin = require('../admin/key.js')
 
 const createAtividade = async (req, res) => {
     try {
@@ -44,8 +46,28 @@ const createAtividade = async (req, res) => {
     }
 }
 
+
+const deleteAllAtividades = async (req, res) => {
+    try {
+        const keyUrl = req.params.key
+
+        if(keyUrl != keyAdmin) {
+            return res.status(500).json({ message: "Senha incorreta, não será possível deletar as turmas" })
+        }
+        
+        const deletedAtividadesTurmas = await TurmaModel.updateMany({ $set: { atividades: [] } })
+        const deletedAtividades = await AtividadeModel.deleteMany({})
+
+        res.status(200).json({ deletedAtividades, message: "Atividades excluídas com sucesso" })
+    } catch (error) {
+        console.log('[CONTROLLER ATIVIDADE DELETE ALL] Error: ' + error)
+    }
+}
+
+
 const atividadeController = {
-    create: createAtividade
+    create: createAtividade,
+    deleteAll: deleteAllAtividades
 }
 
 module.exports = atividadeController
