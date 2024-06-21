@@ -79,3 +79,40 @@
 
         # DELETE https://simplifica-sesi-api.vercel.app/api/atividades/:key (encontrada na pasta ./admin/key.js) :
         Deleta todas as atividades adicionando a senha chave na url;
+
+    # Eventos
+
+        # GET https://simplifica-sesi-api.vercel.app/api/eventos
+        Mostra todas os eventos cadastrados;
+        
+        # GET https://simplifica-sesi-api.vercel.app/api/evento/:id 
+        Permite buscar por um evento em especifico;
+
+        # POST https://simplifica-sesi-api.vercel.app/api/eventos
+        Permite criar um evento;
+
+        Ex. de json: 
+
+            {
+                "turma_id": "66757e20ae3e81113663ece9",
+                "titulo": "Feira de Ciência",
+                "descricao": "Este projeto envolve a criação de um modelo de sistema solar.",
+                "data": "2024-07-23T23:59:59Z"	
+            }
+
+        # PUT https://simplifica-sesi-api.vercel.app/api/evento/:id
+        Permite atualizar algum campo do evento (exceto a turma ao qual ela está cadastrado) pelo id;
+
+        Ex. de json: 
+
+            {
+                "titulo": "Feira de Ciência 2",
+                "descricao": "Este projeto envolve a criação de um modelo de sistema solar.",
+                "data": "2024-07-23T23:59:59Z"	
+            }
+
+        # DELETE https://simplifica-sesi-api.vercel.app/api/evento/:id 
+        Permite deletar um evento pelo id;
+
+        # DELETE https://simplifica-sesi-api.vercel.app/api/eventos/:key (encontrada na pasta ./admin/key.js) :
+        Deleta todas os eventos adicionando a senha chave na url;
