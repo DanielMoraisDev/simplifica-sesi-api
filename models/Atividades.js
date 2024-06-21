@@ -14,7 +14,11 @@ const atividadeSchema = new Schema({
         type: String,
         required: true
     },
-    prazo: {
+    inicio: {
+        type: Date,
+        required: true
+    },
+    fim: {
         type: Date,
         required: true
     },

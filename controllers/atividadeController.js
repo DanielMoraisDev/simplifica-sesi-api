@@ -13,7 +13,8 @@ const createAtividade = async (req, res) => {
             turma_id: turmaId,
             titulo: req.body.titulo,
             descricao: req.body.descricao,
-            prazo: req.body.prazo,
+            inicio: req.body.inicio,
+            fim: req.body.fim,
             habilidades: req.body.habilidades,
             competencias: req.body.competencias,
             links: req.body.links
@@ -78,7 +79,8 @@ const updateAtividade = async (req, res) => {
         const atividade = {
             titulo: req.body.titulo,
             descricao: req.body.descricao,
-            prazo: req.body.prazo,
+            inicio: req.body.inicio,
+            fim: req.body.fim,
             habilidades: req.body.habilidades,
             competencias: req.body.competencias,
             $push: { links: { $each: req.body.links } }
