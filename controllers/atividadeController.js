@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const TurmaModel = require('../models/Turmas.js')
 const AtividadeModel = require('../models/Atividades.js');
 
-const keyAdmin = require('../admin/key.js')
+const keyAdmin = require('../admin/key.js');
 
 const createAtividade = async (req, res) => {
     try {
@@ -104,6 +104,20 @@ const updateAtividade = async (req, res) => {
 const deleteAtividade = async (req, res) => {
     try {
         const id = req.params.id
+
+        const atividade = await AtividadeModel.findById(id)
+
+        if (!atividade) {
+            res.status(404).json({ message: "Atividade não encontrada" })
+        }
+
+        await TurmaModel.updateOne(
+            { _id: atividade.turma_id }, 
+            { $pull: { atividades: { atividade_id: id } } } 
+        );
+        const deletedAtividade = await AtividadeModel.findByIdAndDelete(id)
+
+        res.status(200).json({deletedAtividade, message: "Atividade deletada"})
     } catch (error) {
         console.log('[CONTROLLER ATIVIDADE DELETE] Error: ' + error)
     }

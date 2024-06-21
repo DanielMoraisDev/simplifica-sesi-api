@@ -18,6 +18,10 @@ router.route('/atividade/:id').put((req, res) => {
     return atividadeController.update(req, res)
 })
 
+router.route('/atividade/:id').delete((req, res) => {
+    return atividadeController.delete(req, res)
+})
+
 router.route('/atividades/:key').delete((req, res) => {
     return atividadeController.deleteAll(req, res)
 })
