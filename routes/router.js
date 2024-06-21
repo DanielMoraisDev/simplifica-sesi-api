@@ -9,4 +9,7 @@ router.use('/', atividadeRouter)
 const eventoRouter = require('./eventos.js')
 router.use('/', eventoRouter)
 
+const representanteRouter = require('./representantes.js')
+router.use('/', representanteRouter)
+
 module.exports = router;

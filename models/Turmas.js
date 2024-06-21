@@ -10,6 +10,11 @@ const turmaSchema = new Schema({
         type: String,
         required: true
     },
+    representante: {
+        type: String,
+        required: false,
+        default: ""
+    },
     eventos: {
         type: [{
             evento_id: {
