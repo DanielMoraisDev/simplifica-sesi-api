@@ -29,6 +29,22 @@ const createTurma = async (req, res) => {
     }
 }
 
+const getTurma = async (req, res) => {
+    try {
+        const id = req.params.id
+
+        const turma = await TurmaModel.findById(id)
+
+        if (!turma) {
+            return res.status(500).json({ message: "Turma não encontrada" })
+        }
+
+        res.status(200).json({ turma })
+    } catch (error) {
+        console.log('[CONTROLLER TURMA GET ONE] Error: ' + error)
+    }
+}
+
 const getAllTurmas = async (req, res) => {
     try {
         const turmas = await TurmaModel.find()
@@ -75,6 +91,7 @@ const deleteAllTurma = async (req, res) => {
 
 const turmaController = {
     create: createTurma,
+    getOne: getTurma,
     getAll: getAllTurmas,
     delete: deleteTurma,
     deleteAll: deleteAllTurma

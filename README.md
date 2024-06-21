@@ -4,6 +4,9 @@
 
     # Turmas 
 
+        # GET https://simplifica-sesi-api.vercel.app/api/turma/:id :
+        Permite buscar uma turma pelo id;
+
         # GET https://simplifica-sesi-api.vercel.app/api/turmas :
         Pega todas as turmas cadastradas;
 

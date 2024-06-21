@@ -6,6 +6,10 @@ router.route('/turmas').post((req, res) => {
     return turmaController.create(req, res)
 })
 
+router.route('/turma/:id').get((req, res) => {
+    return turmaController.getOne(req, res)
+})
+
 router.route('/turmas').get((req, res) => {
     return turmaController.getAll(req, res)
 })
