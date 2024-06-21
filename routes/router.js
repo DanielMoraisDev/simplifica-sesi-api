@@ -6,4 +6,7 @@ router.use('/', turmasRouter)
 const atividadeRouter = require('./atividades.js')
 router.use('/', atividadeRouter)
 
+const eventoRouter = require('./eventos.js')
+router.use('/', eventoRouter)
+
 module.exports = router;

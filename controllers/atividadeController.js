@@ -130,7 +130,7 @@ const deleteAllAtividades = async (req, res) => {
         const keyUrl = req.params.key
 
         if(keyUrl != keyAdmin) {
-            return res.status(500).json({ message: "Senha incorreta, não será possível deletar as turmas" })
+            return res.status(500).json({ message: "Senha incorreta, não será possível deletar as atividades" })
         }
         
         await TurmaModel.updateMany({ $set: { atividades: [] } })
@@ -141,7 +141,6 @@ const deleteAllAtividades = async (req, res) => {
         console.log('[CONTROLLER ATIVIDADE DELETE ALL] Error: ' + error)
     }
 }
-
 
 const atividadeController = {
     create: createAtividade,
