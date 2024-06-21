@@ -116,3 +116,17 @@
 
         # DELETE https://simplifica-sesi-api.vercel.app/api/eventos/:key (encontrada na pasta ./admin/key.js) :
         Deleta todas os eventos adicionando a senha chave na url;
+
+    # Representantes
+
+         # GET https://simplifica-sesi-api.vercel.app/api/representante/:id 
+        Permite buscar por um representante em especifico;
+
+        # POST https://simplifica-sesi-api.vercel.app/api/representantes
+        Permite criar um representante;
+
+        # DELETE https://simplifica-sesi-api.vercel.app/api/representante/:id 
+        Permite deletar um representante pelo id;
+
+         # DELETE https://simplifica-sesi-api.vercel.app/api/representantes/:key (encontrada na pasta ./admin/key.js) :
+        Deleta todas os representantes adicionando a senha chave na url;
