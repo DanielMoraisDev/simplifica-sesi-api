@@ -7,8 +7,12 @@
         # GET https://simplifica-sesi-api.vercel.app/api/turma/:id :
         Permite buscar uma turma pelo id;
 
+        OBS: Inclusive é possivel pegar data de criação (createdAt) e de atualização (updatedAt).
+        
         # GET https://simplifica-sesi-api.vercel.app/api/turmas :
         Pega todas as turmas cadastradas;
+
+        OBS: Inclusive é possivel pegar data de criação (createdAt) e de atualização (updatedAt) de cada.
 
         # POST https://simplifica-sesi-api.vercel.app/api/turmas : 
         Permite criar turmas;
@@ -30,9 +34,13 @@
 
         # GET https://simplifica-sesi-api.vercel.app/api/atividades
         Mostra todas as atividades cadastradas;
+
+        OBS: Inclusive é possivel pegar data de criação (createdAt) e de atualização (updatedAt) de cada.
         
         # GET https://simplifica-sesi-api.vercel.app/api/atividade/:id 
         Permite buscar por uma atividade em especifico;
+
+        OBS: Inclusive é possivel pegar data de criação (createdAt) e de atualização (updatedAt).
 
         # POST https://simplifica-sesi-api.vercel.app/api/atividades
         Permite criar uma atividade;
@@ -88,9 +96,13 @@
 
         # GET https://simplifica-sesi-api.vercel.app/api/eventos
         Mostra todas os eventos cadastrados;
+
+        OBS: Inclusive é possivel pegar data de criação (createdAt) e de atualização (updatedAt) de cada.
         
         # GET https://simplifica-sesi-api.vercel.app/api/evento/:id 
         Permite buscar por um evento em especifico;
+
+        OBS: Inclusive é possivel pegar data de criação (createdAt) e de atualização (updatedAt).
 
         # POST https://simplifica-sesi-api.vercel.app/api/eventos
         Permite criar um evento;
@@ -126,9 +138,13 @@
          # GET https://simplifica-sesi-api.vercel.app/api/representante/:id 
         Permite buscar por um representante em especifico;
 
+        OBS: Inclusive é possivel pegar data de criação (createdAt) e de atualização (updatedAt).
+
         # POST https://simplifica-sesi-api.vercel.app/api/representantes
         Permite criar um representante;
 
+        
+        OBS: Inclusive é possivel pegar data de criação (createdAt) e de atualização (updatedAt) de cada.
         # DELETE https://simplifica-sesi-api.vercel.app/api/representante/:id 
         Permite deletar um representante pelo id;
 
