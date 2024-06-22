@@ -43,7 +43,8 @@
                 "turma_id": "66757e20ae3e81113663ece9",
                 "titulo": "Projeto de Ciência",
                 "descricao": "Este projeto envolve a criação de um modelo de sistema solar.",
-                "prazo": "2024-07-31T23:59:59Z",
+                "inicio": "2024-07-31T23:59:59Z",
+                "fim": "2024-08-02T23:59:59Z",
                 "habilidades": "H1, H2, H3",
                 "competencias": "C3, C21",
                 "links": [
