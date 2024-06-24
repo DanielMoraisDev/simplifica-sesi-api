@@ -2,23 +2,18 @@ const mongoose = require('mongoose');
 
 const TurmaModel = require('../models/Turmas.js')
 const AtividadeModel = require('../models/Atividades.js');
-const RepresentanteModel = require('../models/Representantes.js')
+const { verifyRepresentanteID } = require('./functions/verifyRepresentanteID.js')
 
 const keyAdmin = require('../admin/key.js');
 
 const createAtividade = async (req, res) => {
     try {
         const turmaId = new mongoose.Types.ObjectId(req.body.turma_id);
-        const representanteID = [req.body.representante_id]
+        const representanteID = req.body.representante_id
 
-        if(!mongoose.Types.ObjectId.isValid(representanteID[0])) {
-            return res.status(500).json({ message: "Id do representante não é válido" })
-        }
-
-        representanteID[0] = new mongoose.Types.ObjectId(req.body.representante_id)
+        verifyRepresentanteID(req, res, representanteID)
 
         const atividade = {
-            representante_id: representanteID[0],
             turma_id: turmaId,
             titulo: req.body.titulo,
             descricao: req.body.descricao,
@@ -27,12 +22,6 @@ const createAtividade = async (req, res) => {
             habilidades: req.body.habilidades,
             competencias: req.body.competencias,
             links: req.body.links
-        }
-
-        const isRepresentanteExistent = await RepresentanteModel.findById(evento.representante_id)
-
-        if (!isRepresentanteExistent) {
-            return res.status(500).json({ message: "Representante não foi encontrado" })
         }
 
         const isTurmaExistent = await TurmaModel.findById(atividade.turma_id)
@@ -90,16 +79,11 @@ const getAllAtividades = async (req, res) => {
 const updateAtividade = async (req, res) => {
     try {
         const id = req.params.id
-        const representanteID = [req.body.representante_id]
+        const representanteID = req.body.representante_id
 
-        if(!mongoose.Types.ObjectId.isValid(representanteID[0])) {
-            return res.status(500).json({ message: "Id do representante não é válido" })
-        }
-
-        representanteID[0] = new mongoose.Types.ObjectId(req.body.representante_id)
+        verifyRepresentanteID(req, res, representanteID)
 
         const atividade = {
-            representante_id: representanteID[0],
             titulo: req.body.titulo,
             descricao: req.body.descricao,
             inicio: req.body.inicio,
@@ -109,12 +93,6 @@ const updateAtividade = async (req, res) => {
             $push: { links: { $each: req.body.links } }
         }
 
-        const isRepresentanteExistent = await RepresentanteModel.findById(evento.representante_id)
-
-        if (!isRepresentanteExistent) {
-            return res.status(500).json({ message: "Representante não foi encontrado" })
-        }
-        
         const updatedAtividade = await AtividadeModel.findOneAndUpdate(
             { _id: id }, 
             atividade,   

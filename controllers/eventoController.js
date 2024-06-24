@@ -2,34 +2,23 @@ const mongoose = require('mongoose');
 
 const TurmaModel = require('../models/Turmas.js')
 const EventoModel = require('../models/Eventos.js');
-const RepresentanteModel = require('../models/Representantes.js');
+const { verifyRepresentanteID } = require('./functions/verifyRepresentanteID.js')
 
 const keyAdmin = require('../admin/key.js');
 
 const createEvento = async (req, res) => {
     try {
         const turmaID = new mongoose.Types.ObjectId(req.body.turma_id)
-        const representanteID = [req.body.representante_id]
+        const representanteID = req.body.representante_id
 
-        if(!mongoose.Types.ObjectId.isValid(representanteID[0])) {
-            return res.status(500).json({ message: "Id do representante não é válido" })
-        }
-
-        representanteID[0] = new mongoose.Types.ObjectId(req.body.representante_id)
+        verifyRepresentanteID(req, res, representanteID)
 
         const evento = {
-            representante_id: representanteID[0],
             turma_id: turmaID,
             titulo: req.body.titulo,
             descricao: req.body.descricao,
             data: req.body.data,
             local: req.body.local
-        }
-
-        const isRepresentanteExistent = await RepresentanteModel.findById(evento.representante_id)
-
-        if (!isRepresentanteExistent) {
-            return res.status(500).json({ message: "Representante não foi encontrado" })
         }
 
         const isTurmaExistent = await TurmaModel.findById(evento.turma_id)
@@ -87,26 +76,15 @@ const getAllEventos = async (req, res) => {
 const updateEvento = async (req, res) => {
     try {
         const id = req.params.id
-        const representanteID = [req.body.representante_id]
+        const representanteID = req.body.representante_id
 
-        if(!mongoose.Types.ObjectId.isValid(representanteID[0])) {
-            return res.status(500).json({ message: "Id do representante não é válido" })
-        }
-
-        representanteID[0] = new mongoose.Types.ObjectId(req.body.representante_id)
+        verifyRepresentanteID(req, res, representanteID)
 
         const evento = {
-            representante_id: representanteID[0],
             titulo: req.body.titulo,
             descricao: req.body.descricao,
             data: req.body.data,
             local: req.body.local
-        }
-
-        const isRepresentanteExistent = await RepresentanteModel.findById(evento.representante_id)
-
-        if (!isRepresentanteExistent) {
-            return res.status(500).json({ message: "Representante não foi encontrado" })
         }
 
         const updatedEvento = await EventoModel.findOneAndUpdate(
