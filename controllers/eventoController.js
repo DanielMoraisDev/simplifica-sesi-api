@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const TurmaModel = require('../models/Turmas.js')
 const EventoModel = require('../models/Eventos.js');
-const { verifyRepresentanteID } = require('./functions/verifyRepresentanteID.js')
+const { verifyID } = require('./functions/verifyID.js')
 
 const keyAdmin = require('../admin/key.js');
 
@@ -11,7 +11,7 @@ const createEvento = async (req, res) => {
         const turmaID = new mongoose.Types.ObjectId(req.body.turma_id)
         const representanteID = req.body.representante_id
 
-        verifyRepresentanteID(req, res, representanteID)
+        verifyID(req, res, representanteID)
 
         const evento = {
             turma_id: turmaID,
@@ -78,7 +78,7 @@ const updateEvento = async (req, res) => {
         const id = req.params.id
         const representanteID = req.body.representante_id
 
-        verifyRepresentanteID(req, res, representanteID)
+        verifyID(req, res, representanteID)
 
         const evento = {
             titulo: req.body.titulo,
