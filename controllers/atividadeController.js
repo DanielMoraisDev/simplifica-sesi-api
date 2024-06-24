@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const TurmaModel = require('../models/Turmas.js')
 const AtividadeModel = require('../models/Atividades.js');
+const RepresentanteModel = require('../models/Representantes.js')
 
 const keyAdmin = require('../admin/key.js');
 
@@ -24,8 +25,8 @@ const createAtividade = async (req, res) => {
 
         const isRepresentanteExistent = await RepresentanteModel.findById(evento.representante_id)
 
-        if (!isRepresentanteExistent) {
-            return res.status(500).json({ message: "Você não possui permissão de enviar um evento" })
+        if (!evento.representante_id || !isRepresentanteExistent) {
+            return res.status(500).json({ message: "Você não possui permissão de enviar uma atividade" })
         }
 
         const isTurmaExistent = await TurmaModel.findById(atividade.turma_id)

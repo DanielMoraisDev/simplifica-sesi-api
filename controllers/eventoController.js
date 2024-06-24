@@ -22,7 +22,7 @@ const createEvento = async (req, res) => {
 
         const isRepresentanteExistent = await RepresentanteModel.findById(evento.representante_id)
 
-        if (!isRepresentanteExistent) {
+        if (!evento.representante_id || !isRepresentanteExistent) {
             return res.status(500).json({ message: "Você não possui permissão de enviar um evento" })
         }
 
