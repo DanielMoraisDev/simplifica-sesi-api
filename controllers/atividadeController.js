@@ -8,8 +8,10 @@ const keyAdmin = require('../admin/key.js');
 const createAtividade = async (req, res) => {
     try {
         const turmaId = new mongoose.Types.ObjectId(req.body.turma_id);
+        const representanteID = new mongoose.Types.ObjectId(req.body.representante_id)
 
         const atividade = {
+            representante_id: representanteID,
             turma_id: turmaId,
             titulo: req.body.titulo,
             descricao: req.body.descricao,
@@ -18,6 +20,12 @@ const createAtividade = async (req, res) => {
             habilidades: req.body.habilidades,
             competencias: req.body.competencias,
             links: req.body.links
+        }
+
+        const isRepresentanteExistent = await RepresentanteModel.findById(evento.representante_id)
+
+        if (!isRepresentanteExistent) {
+            return res.status(500).json({ message: "Você não possui permissão de enviar um evento" })
         }
 
         const isTurmaExistent = await TurmaModel.findById(atividade.turma_id)

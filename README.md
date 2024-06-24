@@ -56,6 +56,8 @@
                 ]
             }
 
+        OBS: Se adicionado '"representante_id" : "{id}"', o representante pode adicionar uma atividade
+
         # PUT https://simplifica-sesi-api.vercel.app/api/atividade/:id
         Permite atualizar algum campo da atividade (exceto a turma ao qual ela está cadastrada) pelo id;
 
@@ -103,6 +105,8 @@
                 "data": "2024-07-23T23:59:59Z"	
             }
 
+        OBS: Se adicionado '"representante_id" : "{id}"', o representante pode adicionar uma atividade
+
         # PUT https://simplifica-sesi-api.vercel.app/api/evento/:id
         Permite atualizar algum campo do evento (exceto a turma ao qual ela está cadastrado) pelo id;
 
@@ -122,7 +126,7 @@
 
     # Representantes
 
-         # GET https://simplifica-sesi-api.vercel.app/api/representante/:id 
+        # GET https://simplifica-sesi-api.vercel.app/api/representante/:id 
         Permite buscar por um representante em especifico;
 
         # POST https://simplifica-sesi-api.vercel.app/api/representantes
@@ -131,5 +135,5 @@
         # DELETE https://simplifica-sesi-api.vercel.app/api/representante/:id 
         Permite deletar um representante pelo id;
 
-         # DELETE https://simplifica-sesi-api.vercel.app/api/representantes/:key (encontrada na pasta ./admin/key.js) :
+        # DELETE https://simplifica-sesi-api.vercel.app/api/representantes/:key (encontrada na pasta ./admin/key.js) :
         Deleta todas os representantes adicionando a senha chave na url;

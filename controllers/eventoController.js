@@ -2,19 +2,28 @@ const mongoose = require('mongoose');
 
 const TurmaModel = require('../models/Turmas.js')
 const EventoModel = require('../models/Eventos.js');
+const RepresentanteModel = require('../models/Representantes.js');
 
 const keyAdmin = require('../admin/key.js');
 
 const createEvento = async (req, res) => {
     try {
-        const turmaID = new mongoose.Types.ObjectId(req.body.turma_id);
+        const turmaID = new mongoose.Types.ObjectId(req.body.turma_id)
+        const representanteID = new mongoose.Types.ObjectId(req.body.representante_id)
 
         const evento = {
+            representante_id: representanteID,
             turma_id: turmaID,
             titulo: req.body.titulo,
             descricao: req.body.descricao,
             data: req.body.data,
             local: req.body.local
+        }
+
+        const isRepresentanteExistent = await RepresentanteModel.findById(evento.representante_id)
+
+        if (!isRepresentanteExistent) {
+            return res.status(500).json({ message: "Você não possui permissão de enviar um evento" })
         }
 
         const isTurmaExistent = await TurmaModel.findById(evento.turma_id)
