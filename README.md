@@ -78,6 +78,7 @@
             }
 
         OBS: Não existe a função de deletar os links de cada atividade, e não há uma verificação no back end para o envio do link
+        OBS 2: Se adicionado '"representante_id" : "{id}"', o representante pode alterar uma atividade
 
         # DELETE https://simplifica-sesi-api.vercel.app/api/atividade/:id 
         Permite deletar uma atividade pelo id;
@@ -117,6 +118,8 @@
                 "descricao": "Este projeto envolve a criação de um modelo de sistema solar.",
                 "data": "2024-07-23T23:59:59Z"	
             }
+
+        OBS: Se adicionado '"representante_id" : "{id}"', o representante pode alterar um evento
 
         # DELETE https://simplifica-sesi-api.vercel.app/api/evento/:id 
         Permite deletar um evento pelo id;
