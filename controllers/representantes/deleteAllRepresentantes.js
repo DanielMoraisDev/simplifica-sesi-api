@@ -1,5 +1,3 @@
-const mongoose = require("mongoose")
-
 const TurmaModel = require('../../models/Turmas.js')
 const RepresentanteModel = require('../../models/Representantes.js')
 

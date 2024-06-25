@@ -7,7 +7,7 @@ const deleteRepresentante = async (req, res) => {
     try {
         const id = req.params.id
 
-        verifyID(req, res, id, RepresentanteModel)
+        verifyID(req, res, id, RepresentanteModel, "", "true")
 
         const representante = await RepresentanteModel.findById(id)
 

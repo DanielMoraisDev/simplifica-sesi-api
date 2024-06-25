@@ -12,4 +12,7 @@ router.use('/', eventoRouter)
 const representanteRouter = require('./representantes.js')
 router.use('/', representanteRouter)
 
+const areasConhecimentoRouter = require('./areaConhecimento.js')
+router.use('/', areasConhecimentoRouter)
+
 module.exports = router;

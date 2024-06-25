@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 const { createRepresentante } = require('./createRepresentante.js')
 const { getRepresentante } = require('./getRepresentante.js')
 const { deleteRepresentante } = require('./deleteRepresentante.js')
