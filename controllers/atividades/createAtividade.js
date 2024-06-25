@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const AtividadeModel = require('../../models/Atividades.js')
 const TurmaModel = require('../../models/Turmas.js')
 const RepresentanteModel = require('../../models/Representantes.js')
+const AreaDoConhecimentoModel = require('../../models/AreaDoConhecimento.js')
 
 const { verifyID } = require('../functions/verifyID.js')
 
 const createAtividade = async (req, res) => {
     try {
         const turmaId = new mongoose.Types.ObjectId(req.body.turma_id);
+        const areaDoConhecimentoId = new mongoose.Types.ObjectId(req.body.area_do_conhecimento_id)
         const representanteID = req.body.representante_id
 
         verifyID(req, res, representanteID, RepresentanteModel, "", "true")
@@ -17,6 +19,7 @@ const createAtividade = async (req, res) => {
             turma_id: turmaId,
             titulo: req.body.titulo,
             descricao: req.body.descricao,
+            area_do_conhecimento_id: areaDoConhecimentoId,
             inicio: req.body.inicio,
             fim: req.body.fim,
             habilidades: req.body.habilidades,
@@ -28,6 +31,12 @@ const createAtividade = async (req, res) => {
 
         if(!isTurmaExistent) {
             return res.status(404).json({ message: "Turma não encontrada" })
+        }
+
+        const isAreaDoConhecimentoExistent = await AreaDoConhecimentoModel.findById(atividade.area_do_conhecimento_id)
+
+        if(!isAreaDoConhecimentoExistent) {
+            return res.status(404).json({ message: "Area do conhecimento não encontrada" })
         }
 
         const atividadeCreated = await AtividadeModel.create(atividade)

@@ -14,6 +14,10 @@ const atividadeSchema = new Schema({
         type: String,
         required: true
     },
+    area_do_conhecimento_id: {
+        type: String,
+        required: true
+    },
     inicio: {
         type: Date,
         required: true
