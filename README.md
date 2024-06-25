@@ -140,3 +140,17 @@
 
         # DELETE https://simplifica-sesi-api.vercel.app/api/representantes/:key (encontrada na pasta ./admin/key.js) :
         Deleta todas os representantes adicionando a senha chave na url;
+
+    # Areas do conhecimento
+
+        # GET https://simplifica-sesi-api.vercel.app/api/area-conhecimento/:id 
+        Permite buscar por uma area do conhecimento em especifico;
+
+        # POST https://simplifica-sesi-api.vercel.app/api/area-conhecimento
+        Permite criar uma area do conhecimento;
+
+        # DELETE https://simplifica-sesi-api.vercel.app/api/representante/area-conhecimento/:id 
+        Permite deletar uma area do conhecimento pelo id;
+
+        # GET https://simplifica-sesi-api.vercel.app/api/areas-conhecimento
+        Permite visualizar todas as areas do conhecimento
