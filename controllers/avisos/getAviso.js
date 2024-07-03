@@ -1,4 +1,4 @@
-const AvisoModel = require("../../models/Aviso.js")
+const AvisoModel = require("../../models/Avisos.js")
 
 const { verifyID } = require("../functions/verifyID.js")
 

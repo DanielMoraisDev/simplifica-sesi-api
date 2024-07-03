@@ -1,4 +1,4 @@
-const AvisoModel = require("../../models/Atividades.js")
+const AvisoModel = require("../../models/Avisos.js")
 const TurmaModel = require("../../models/Turmas.js")
 
 const { verifyID } = require("../functions/verifyID")
