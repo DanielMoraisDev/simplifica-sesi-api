@@ -18,7 +18,6 @@ const createAviso = async (req, res) => {
             turma_id: turmaId,
             titulo: req.body.titulo,
             descricao: req.body.descricao,
-            tipo: req.body.tipo,
             links: req.body.links
         }
 

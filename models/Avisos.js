@@ -18,11 +18,6 @@ const avisosSchema = new Schema({
         type: String,
         required: true
     },
-    // Escola ou não
-    tipo: {
-        type: String,
-        required: true
-    },
     links: {
         type: [{
             link: {

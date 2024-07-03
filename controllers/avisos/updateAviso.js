@@ -13,7 +13,6 @@ const updateAviso = async (req, res) => {
         const aviso = {
             titulo: req.body.titulo,
             descricao: req.body.descricao,
-            tipo: req.body.tipo,
             $push: { links: { $each: req.body.links } }
         }
 
