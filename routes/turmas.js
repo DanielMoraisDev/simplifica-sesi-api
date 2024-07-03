@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const turmaController = require('../controllers/turmaController.js')
+const turmaController = require('../controllers/turmas/turmaController.js')
 
 router.route('/turmas').post((req, res) => {
     return turmaController.create(req, res)

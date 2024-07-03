@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const eventoController = require('../controllers/eventoController.js')
+const eventoController = require('../controllers/eventos/eventoController.js')
 
 router.route('/eventos').post((req, res) => {
     return eventoController.create(req, res)
