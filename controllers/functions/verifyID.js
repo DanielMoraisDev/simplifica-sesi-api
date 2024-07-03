@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const verifyID = async (req, res, id, model, messagePersona, representante) => {
     if (!mongoose.Types.ObjectId.isValid(id) && representante && messagePersona == "" && representante == "true") {
-        return res.status(500).json({ message: "ID do representante não é válido" })
+        return res.status(500).json({ message: "ID do representante não é válido ou está ausente" })
     }else if (!mongoose.Types.ObjectId.isValid(id)) {
         if (messagePersona == "") {
             return res.status(500).json({ message: "ID não é válido" })

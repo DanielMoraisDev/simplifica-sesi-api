@@ -1,4 +1,4 @@
-const AtividadeModel = require("../../models/Atividades")
+const AtividadeModel = require("../../models/Atividades.js")
 
 const getAllAtividades = async (req, res) => {
     try {

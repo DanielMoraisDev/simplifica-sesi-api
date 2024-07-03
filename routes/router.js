@@ -3,16 +3,19 @@ const router = require('express').Router()
 const turmasRouter = require('./turmas.js')
 router.use('/', turmasRouter)
 
-const atividadeRouter = require('./atividades.js')
-router.use('/', atividadeRouter)
+const atividadesRouter = require('./atividades.js')
+router.use('/', atividadesRouter)
 
-const eventoRouter = require('./eventos.js')
-router.use('/', eventoRouter)
+const eventosRouter = require('./eventos.js')
+router.use('/', eventosRouter)
 
-const representanteRouter = require('./representantes.js')
-router.use('/', representanteRouter)
+const representantesRouter = require('./representantes.js')
+router.use('/', representantesRouter)
 
-const areasConhecimentoRouter = require('./areaConhecimento.js')
+const areasConhecimentoRouter = require('./areaConhecimentos.js')
 router.use('/', areasConhecimentoRouter)
+
+const avisosRouter = require('./avisos.js')
+router.use('/', avisosRouter)
 
 module.exports = router;

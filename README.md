@@ -59,7 +59,7 @@
         OBS: Se adicionado '"representante_id" : "{id}"', o representante pode adicionar uma atividade
 
         # PUT https://simplifica-sesi-api.vercel.app/api/atividade/:id
-        Permite atualizar algum campo da atividade (exceto a turma ao qual ela está cadastrada) pelo id;
+        Permite atualizar algum campo da atividade (exceto a turma e representante ao qual ela está cadastrada) pelo id;
 
         Ex. de json: 
 
@@ -78,7 +78,7 @@
             }
 
         OBS: Não existe a função de deletar os links de cada atividade, e não há uma verificação no back end para o envio do link
-        OBS 2: Se adicionado '"representante_id" : "{id}"', o representante pode atualizar um evento
+        OBS 2: Se adicionado '"representante_id" : "{id}"', o representante pode atualizar uma atividade
         
         # DELETE https://simplifica-sesi-api.vercel.app/api/atividade/:id 
         Permite deletar uma atividade pelo id;
@@ -109,7 +109,7 @@
         OBS: Se adicionado '"representante_id" : "{id}"', o representante pode adicionar uma atividade
 
         # PUT https://simplifica-sesi-api.vercel.app/api/evento/:id
-        Permite atualizar algum campo do evento (exceto a turma ao qual ela está cadastrado) pelo id;
+        Permite atualizar algum campo do evento (exceto a turma e representante ao qual ela está cadastrado) pelo id;
 
         Ex. de json: 
 
@@ -154,3 +154,59 @@
 
         # GET https://simplifica-sesi-api.vercel.app/api/areas-conhecimento
         Permite visualizar todas as areas do conhecimento
+
+    # Avisos
+
+        # GET https://simplifica-sesi-api.vercel.app/api/avisos
+        Mostra todos os avisos cadastrados;
+        
+        # GET https://simplifica-sesi-api.vercel.app/api/aviso/:id 
+        Permite buscar por um aviso em especifico;
+
+        # POST https://simplifica-sesi-api.vercel.app/api/avisos
+        Permite criar um aviso;
+
+        Ex. de json: 
+            
+            {
+               "representante_id": "667a1b52aaeb8a3a9b24b6ee",
+                "turma_id": "66757e20ae3e81113663ece9",
+                "titulo": "Aula de Matemática",
+                "descricao": "Introdução à álgebra e resolução de equações",
+                "tipo": "Escola",
+                "links": [
+                    {
+                        "link": "https://www.exemplo.com/material-algebra"
+                    },
+                    {
+                        "link": "https://www.exemplo.com/exercicios-equacoes"
+                    }
+                ]
+            }
+
+        OBS: Se adicionado '"representante_id" : "{id}"', o representante pode adicionar um aviso
+
+        # PUT https://simplifica-sesi-api.vercel.app/api/aviso/:id
+        Permite atualizar algum campo do aviso (exceto a turma e representante ao qual ela está cadastrado) pelo id;
+
+        Ex. de json: 
+
+            {
+                "titulo": "Aula de Matemática 2",
+                "descricao": "Introdução à álgebra e resolução de equações",
+                "tipo": "Escola",
+                "links": [
+                    {
+                        "link": "https://www.exemplo.com/material-algebra-2"
+                    }
+                ]
+            }
+
+        OBS: Não existe a função de deletar os links de cada aviso, e não há uma verificação no back end para o envio do link
+        OBS 2: Se adicionado '"representante_id" : "{id}"', o representante pode atualizar um aviso
+        
+        # DELETE https://simplifica-sesi-api.vercel.app/api/aviso/:id 
+        Permite deletar um aviso pelo id;
+
+        # DELETE https://simplifica-sesi-api.vercel.app/api/avisos/:key (encontrada na pasta ./admin/key.js) :
+        Deleta todos os avisos adicionando a senha chave na url;

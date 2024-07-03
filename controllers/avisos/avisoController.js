@@ -1,7 +1,7 @@
 const { createAviso } = require("./createAviso.js")
 
-const avisosController = {
+const avisoController = {
     create: createAviso,
 }
 
-module.exports = avisosController
+module.exports = avisoController
