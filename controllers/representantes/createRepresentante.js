@@ -3,9 +3,19 @@ const mongoose = require("mongoose")
 const TurmaModel = require('../../models/Turmas.js')
 const RepresentanteModel = require('../../models/Representantes.js')
 
+const keyAdmin = process.env.KEY
+
 const createRepresentante = async (req, res) => {
     try {
         const turmaID = new mongoose.Types.ObjectId(req.body.turma_id);
+
+        if(!req.body.key) {
+            return res.status(500).json({ message: "É necessário a keyAdmin para criar" })
+        }
+
+        if(req.body.key !== keyAdmin) {
+           return res.status(500).json({ message: "A keyAdmin está incorreta" })
+        }
 
         const representante = {
             turma_id: turmaID,

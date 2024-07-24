@@ -1,7 +1,9 @@
+require("dotenv/config")
+
 const AtividadeModel = require("../../models/Atividades")
 const TurmaModel = require("../../models/Turmas")
 
-const keyAdmin = require('../../admin/key.js')
+const keyAdmin = process.env.KEY
 
 const deleteAllAtividades = async (req, res) => {
     try {

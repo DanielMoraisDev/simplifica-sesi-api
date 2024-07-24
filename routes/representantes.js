@@ -2,7 +2,7 @@ const router = require('express').Router()
 
 const representanteController = require('../controllers/representantes/representanteController.js')
 
-router.route('/representantes').post((req, res) => {
+router.route('/representante').post((req, res) => {
     return representanteController.create(req, res)
 })
 

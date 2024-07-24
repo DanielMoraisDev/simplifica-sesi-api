@@ -1,6 +1,8 @@
+require("dotenv/config")
+
 const TurmaModel = require('../../models/Turmas.js')
 
-const keyAdmin = require('../../admin/key.js')
+const keyAdmin = process.env.KEY
 
 const deleteAllTurma = async (req, res) => {
     try {

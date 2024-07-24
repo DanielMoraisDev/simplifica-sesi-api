@@ -1,7 +1,9 @@
+require("dotenv/config")
+
 const AvisosModel = require("../../models/Avisos.js")
 const TurmaModel = require("../../models/Turmas.js")
 
-const keyAdmin = require('../../admin/key.js')
+const keyAdmin = process.env.KEY
 
 const deleteAllAvisos = async (req, res) => {
     try {
