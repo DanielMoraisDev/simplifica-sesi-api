@@ -135,6 +135,14 @@
         # POST https://simplifica-sesi-api.vercel.app/api/representantes
         Permite criar um representante;
 
+        Ex. de json: 
+        {
+            "turma_id": "66757e20ae3e81113663ece9",
+            "nome": "Daniel",
+            "senha": "Dd2131231"
+            "key": SENHA ESTÁ NO .ENV
+        }
+
         # DELETE https://simplifica-sesi-api.vercel.app/api/representante/:id 
         Permite deletar um representante pelo id;
 
