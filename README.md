@@ -129,6 +129,9 @@
 
     # Representantes
 
+        # GET https://simplifica-sesi-api.vercel.app/api/representantes
+        Mostra todos os representantes cadastrados
+
         # GET https://simplifica-sesi-api.vercel.app/api/representante/:id 
         Permite buscar por um representante em especifico;
 
