@@ -3,10 +3,14 @@ const mongoose = require("mongoose")
 const TurmaModel = require('../../models/Turmas.js')
 const RepresentanteModel = require('../../models/Representantes.js')
 
+const { verifyID } = require("../functions/verifyID")
+
 const keyAdmin = process.env.KEY
 
 const createRepresentante = async (req, res) => {
     try {
+        verifyID(req, res, req.body.turma_id, RepresentanteModel, "turma id")
+
         const turmaID = new mongoose.Types.ObjectId(req.body.turma_id);
 
         if(!req.body.key) {
@@ -23,7 +27,7 @@ const createRepresentante = async (req, res) => {
             senha: req.body.senha
         }
 
-        const isTurmaExistent = await TurmaModel.findById(representante.turma_id)
+        const isTurmaExistent = await TurmaModel.findById(req.body.turma_id)
 
         if(!isTurmaExistent) {
             return res.status(404).json({ message: "Turma não encontrada" })
