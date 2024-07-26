@@ -10,6 +10,10 @@ router.route('/representante/:id').get((req, res) => {
     return representanteController.getOne(req, res)
 })
 
+router.route('/representantes').get((req, res) => {
+    return representanteController.getAll(req, res)
+})
+
 router.route('/representantes/:key').delete((req, res) => {
     return representanteController.deleteAll(req, res)
 })
