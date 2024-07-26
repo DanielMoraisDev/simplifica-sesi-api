@@ -9,7 +9,7 @@ const keyAdmin = process.env.KEY
 
 const createRepresentante = async (req, res) => {
     try {
-        verifyID(req, res, req.body.turma_id, RepresentanteModel, "turma id")
+        verifyID(req, res, req.body.turma_id, TurmaModel, "turma id")
 
         const turmaID = new mongoose.Types.ObjectId(req.body.turma_id);
 
