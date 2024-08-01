@@ -46,6 +46,7 @@
                 "prazo": "2024-07-31T23:59:59Z",
                 "habilidades": "H1, H2, H3",
                 "competencias": "C3, C21",
+                "obj_conhecimento": "Ondulatória",
                 "links": [
                     {
                         "link": "http://example.com/modelo-sistema-solar"
@@ -67,6 +68,7 @@
                 "titulo": "Feira de Ciência",
                 "habilidades": "H1, H2, H3",
                 "competencias": "C3, C21",
+                "obj_conhecimento": "química orgânica",
                 "links": [
                     {
                         "link": "https://example.com/casadas-agora"

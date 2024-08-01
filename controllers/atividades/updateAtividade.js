@@ -17,6 +17,7 @@ const updateAtividade = async (req, res) => {
             fim: req.body.fim,
             habilidades: req.body.habilidades,
             competencias: req.body.competencias,
+            obj_conhecimento: req.body.obj_conhecimento,
             $push: { links: { $each: req.body.links } }
         }
 

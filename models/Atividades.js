@@ -38,6 +38,10 @@ const atividadeSchema = new Schema({
         type: String,
         required: true
     },
+    obj_conhecimento: {
+        type: String,
+        required: true
+    },
     links: {
         type: [{
             link: {
