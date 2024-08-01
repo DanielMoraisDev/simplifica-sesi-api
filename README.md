@@ -135,7 +135,7 @@
         # GET https://simplifica-sesi-api.vercel.app/api/representante/:id 
         Permite buscar por um representante em especifico;
 
-        # POST https://simplifica-sesi-api.vercel.app/api/representantes
+        # POST https://simplifica-sesi-api.vercel.app/api/representante
         Permite criar um representante;
 
         Ex. de json: 
