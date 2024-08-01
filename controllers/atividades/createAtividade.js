@@ -16,6 +16,7 @@ const createAtividade = async (req, res) => {
         verifyID(req, res, representanteID, RepresentanteModel, "", "true")
 
         const atividade = {
+            representante_id: req.body.representante_id,
             turma_id: turmaId,
             titulo: req.body.titulo,
             descricao: req.body.descricao,
