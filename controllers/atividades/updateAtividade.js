@@ -14,6 +14,7 @@ const updateAtividade = async (req, res) => {
             titulo: req.body.titulo,
             descricao: req.body.descricao,
             inicio: req.body.inicio,
+            trimestre: req.body.trimestre,
             fim: req.body.fim,
             habilidades: req.body.habilidades,
             competencias: req.body.competencias,

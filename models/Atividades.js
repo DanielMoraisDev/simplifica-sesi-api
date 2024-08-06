@@ -22,6 +22,10 @@ const atividadeSchema = new Schema({
         type: String,
         required: true
     },
+    trimestre: {
+        type: String,
+        required: true
+    },
     inicio: {
         type: Date,
         required: true

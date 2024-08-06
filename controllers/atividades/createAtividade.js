@@ -21,12 +21,17 @@ const createAtividade = async (req, res) => {
             titulo: req.body.titulo,
             descricao: req.body.descricao,
             area_do_conhecimento_id: areaDoConhecimentoId,
+            trimestre: req.body.trimestre,
             inicio: req.body.inicio,
             fim: req.body.fim,
             habilidades: req.body.habilidades,
             competencias: req.body.competencias,
             obj_conhecimento: req.body.obj_conhecimento,
             links: req.body.links
+        }
+
+        if (atividade .trimestre !== "1º" || atividade.trimestre !== "2º" || atividade.trimestre !== "2º") {
+            return res.status(500).json({ message: "Os valores para o trimestre são apenas '1º', '2º' e '3º'" })
         }
 
         const isTurmaExistent = await TurmaModel.findById(atividade.turma_id)

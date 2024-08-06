@@ -44,6 +44,7 @@
                 "titulo": "Projeto de Ciência",
                 "descricao": "Este projeto envolve a criação de um modelo de sistema solar.",
                 "prazo": "2024-07-31T23:59:59Z",
+                "trimestre": "1º", // aceita apenas 1º, 2º ou 3º
                 "habilidades": "H1, H2, H3",
                 "competencias": "C3, C21",
                 "obj_conhecimento": "Ondulatória",
@@ -68,6 +69,7 @@
                 "titulo": "Feira de Ciência",
                 "habilidades": "H1, H2, H3",
                 "competencias": "C3, C21",
+                "trimestre": "2º", // aceita apenas 1º, 2º ou 3º
                 "obj_conhecimento": "química orgânica",
                 "links": [
                     {
